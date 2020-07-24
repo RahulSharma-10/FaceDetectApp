@@ -78,7 +78,7 @@ class App extends Component {
     <div className="App">
        <Particles className='particles'
                 params={particlesOptions} />
-      <Navigation />
+      
       <Logo />
       <Rank />
       <ImageLinkForm 
