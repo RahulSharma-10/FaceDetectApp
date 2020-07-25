@@ -16,6 +16,9 @@ This FaceDetect App uses React js, and Clarifie API to detect images.
 
 ![Detected Face](https://user-images.githubusercontent.com/66758271/88392207-3e987e80-cdd9-11ea-9e4b-a0e26e608941.PNG)
 
+=> **UPDATE: Multiple Face Detection**
+
+![MultipleFaceDetect](https://user-images.githubusercontent.com/66758271/88451992-c1244b00-ce78-11ea-99b7-d6ffdce0ae80.PNG)
 
 ## Available Scripts
 
