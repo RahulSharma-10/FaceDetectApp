@@ -33,26 +33,30 @@ class App extends Component {
     this.state = {
       input: '',
       imageUrl: '',
-      box: {},
+      boxes: [],
     }
   }
   calculateFaceLocation = (bata) =>{
    
-   const clarifaiFace = bata.outputs[0].data.regions[0].region_info.bounding_box;
-   const image = document.getElementById('inputimage');
-   const width = Number(image.width);
-   const height = Number(image.height);
-   return {
-    leftCol: clarifaiFace.left_col * width,
-    topRow: clarifaiFace.top_row * height,
-    rightCol: width- (clarifaiFace.right_col * width),
-    bottomRow: height - (clarifaiFace.bottom_row * height),
-   }
+   const clarifaiFaces = bata.outputs[0].data.regions.map(face => {
+      const faceBox = face.region_info.bounding_box;
+      const image = document.getElementById('inputimage');
+      const width = Number(image.width);
+      const height = Number(image.height);
+
+      return {
+        leftCol: faceBox.left_col * width,
+        rightCol: width - (faceBox.right_col * width),
+        topRow: faceBox.top_row * height,
+        bottomRow: height - (faceBox.bottom_row * height)
+      }    
+    })
+    return clarifaiFaces;
   }
 
   displayFaceBox = (box) =>{
     console.log(box); 
-    this.setState({box: box});
+    this.setState({boxes: box});
     
   }
 
@@ -85,7 +89,8 @@ class App extends Component {
           onInputChange={this.onInputChange}
           onButtonSubmit={this.onButtonSubmit}
           />
-      <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl}/>
+
+      <FaceRecognition box={this.state.boxes} imageUrl={this.state.imageUrl}/>
     </div>
   );
 }
