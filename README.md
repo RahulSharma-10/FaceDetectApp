@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Overview:
-This FaceDetect App uses React js, and Clarifie API to detect images. 
+This FaceDetect App uses React js, and Clarifie API to detect faces in images.
 
 # Preview:
 => **Home Page**:
